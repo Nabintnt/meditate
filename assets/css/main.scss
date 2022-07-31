@@ -1,0 +1,661 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "var";
+@import "mixin";
+/* All-components */
+body {
+    @include ulstyle;
+    @include overflowx;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    p {
+        @include small-font;
+        color: $paragraph-color;
+    }
+    .sub-text-green {
+        color: $primary-color;
+    }
+    a {
+        text-decoration: none;
+    }
+    img {
+        object-fit: cover;
+    }
+    .all-links-new {
+        color:$button-hover-color;
+    }
+    .sub-text {
+        color: $button-hover-color;
+    }
+    section {
+        padding: 60px 0;
+    }
+    .all-links {
+        color: $secondary-color;
+        &:hover{
+            color: $secondary-color;
+        }
+        
+    }
+    .btn {
+        @include transition-delay;
+        &:hover {
+            background: $button-hover-color !important;
+            border: 1px solid transparent;
+        }
+    }
+    .title-section p {
+        width: 70%;
+        margin: 0 auto;
+        margin-bottom: 2em;
+    }
+}
+
+/* Header-component */
+.main-header {
+    .header-logo {
+        height: 76px;
+    }
+    .dropdown-langbutton li {
+        display: block !important;
+        margin-left: 7px;
+    }
+    .lang-icon {
+        width: 13px;
+        margin-top: -4px;
+    }
+    .navbar-maintop {
+        background: $optional-color;
+        .nav-item a {
+            font-weight: 500;
+        }
+        .active a {
+            color: $primary-color;
+        }
+    }
+    .btn-tolang {
+        border: 1px solid #0000003d;
+        @include no-border-radius;
+        padding: 1px 8px;
+        @include transition-delay;
+        color: $primary-color;
+    }
+    .flex-navbar {
+        justify-content: space-evenly;
+    }
+    .login-navbar {
+        @include ulstyle;
+        li {
+            display: inline-block;
+        }
+    }
+}
+
+/* banner-slider */
+.hero-bannermain {
+    margin-top: 6em;
+    .banner-contents {
+        @include position-parent;
+        .banner-allcontent {
+            @include position-child;
+            top: 0;
+            background: #000000bd;
+            @include height-full;
+            flex-direction: column;
+            @include displayflex;
+        }
+        img:before {
+            @include position-child;
+            top: 10px;
+            @include height-full;
+            background: $secondary-color;
+            content: "";
+        }
+        li {
+            list-style: none;
+            a{
+                position: static;
+                &:hover i{
+                    @include animation;
+                }
+            }
+        }
+        .banner-subtitle {
+            @include subtitle-font;
+            font-style: italic;
+            @include no-margin;
+            color: $optional-color;
+        }
+        .banner-title {
+            color: $optional-color;
+            @include text-center;
+        }
+    }
+    
+}
+.banner-allcontent .btn-banner {
+    background: $primary-color;
+    color: $optional-color;
+    margin-top: 15px;
+    i {
+        font-size: 14px;
+        margin-left: 4px;
+    }
+}
+
+.hero-bannermain .owl-nav button {
+    width: 30px;
+    height: 60px;
+    background: $primary-color !important;
+    span {
+        color: $optional-color;
+        font-size: 0;
+    }
+}
+.hero-bannermain .owl-nav {
+    top: 45%;
+    @include position-child;
+    &:after {
+        @include clear-content;
+    }
+    .owl-dots {
+        display: none;
+    }
+}
+.hero-bannermain .owl-prev {
+    @include left-float;
+    span:after {
+        content: "\f177";
+        @include icon-small;
+    }
+}
+.hero-bannermain .owl-next {
+    @include right-float;
+    span:after {
+        content: "\f178";
+        @include icon-small;
+    }
+}
+
+/* Donation-section */
+.donation {
+    @include position-parent;
+    :before{
+        @include pseudo-position;
+        background: url('../images/leaf-right.png') no-repeat left bottom;
+        bottom: 0px;
+        right: -20px;
+        width: 240px;
+        height: 128px; 
+    }
+    @keyframes pop08 {
+    0%,50%,100% {
+        @include infinite-animation-start;
+    }
+
+    25%,75% {
+        @include infinite-animation-ends;
+    }
+}
+    :after {
+        @include pseudo-position;
+        background: url('../images/leaf-left.png') no-repeat left bottom;
+        bottom: -20px;
+        left: -100px;
+        width: 300px;
+        height: 313px;
+    }
+    @keyframes pop08 {
+    0%,50%,100% {
+       @include infinite-animation-start;
+    }
+
+    25%,75% {
+        @include infinite-animation-ends;
+    }
+}
+    
+     .iconbg1 {
+        @include positionabsolute;
+        top: 55px;
+        transform: rotate(190deg);
+    }
+     .iconbg2 {
+        @include positionabsolute;
+        right: 110px;
+    }
+     h2 {
+        margin: 15px 94px;
+    }
+}
+
+/* About-section */
+.about-section{
+.about-image-wrapper {
+    width: 75%;
+    @include right-float;
+    @include displayflex;
+    @include height-full;
+    overflow: hidden;
+    .about-image-wrapper img {
+        @include transform-image;
+        @include transition-delay;
+        &:hover {
+            @include transform-image-hover;
+            cursor: pointer;
+        }
+    }
+    
+}
+    .about-aside-content {
+        margin-top: 4em;
+        .about-more {
+            color: $primary-color;
+            text-transform: capitalize;
+            &:hover {
+                color: $button-hover-color;
+            }
+        }
+        .about-main-title {
+            font-size: 30px;
+        }
+    }
+}
+
+
+/* service-section */
+.service-main {
+    background: $section-background;
+         .btn-service {
+            background: $primary-color;
+            color: $optional-color;
+            @include no-border-radius;
+            margin-top: 1.5em;
+        }
+        p {
+            margin: 0 4px;
+        }
+        .services-slider-btn {
+            color: $primary-color;
+            text-transform: capitalize;
+            &:hover{
+                color: $button-hover-color;
+            }
+        }
+        .service-slider {
+            @include position-parent;
+            .owl-nav button {
+                width: 57px;
+                background: $primary-color !important;
+                border-radius: 50%;
+                margin: 0 -27px;
+            }
+        }
+        .service-slider .owl-nav {
+            top: 43%;
+            @include position-child;
+            &:after {
+                @include clear-content;
+            }
+            span {
+                font-size: 36px;
+                color: $optional-color;
+            }
+             .owl-prev {
+                @include left-float;
+            }
+             .owl-next {
+                @include right-float;
+            }
+        }
+        .service-content .service-contenttitle {
+            @include font-medium;
+            margin-top: 19px;
+        }
+        
+}
+        
+    .service-slider-image img,
+        .news-thumbnails img,
+        .gal-imagewrapper img {
+            @include transform-image;
+            @include transition-delay;
+        }
+        .service-slider-image img:hover,
+        .news-thumbnails img:hover,
+        .gal-imagewrapper img:hover {
+            @include transform-image-hover;
+            cursor: pointer;
+        }
+        .service-slider-image,
+        .news-thumbnails,
+        .gal-imagewrapper {
+            overflow: hidden;
+        }
+/* news-section */
+.news-events {
+    .news-contentsaside {
+        background: $primary-color;
+        color: $optional-color;
+        @include positionabsolute;
+        left: 0;
+        width: 44%;
+        .readmore-icon {
+            color: $optional-color;
+
+        }
+        p {
+            margin-top: 2em;
+            color: $optional-color;
+        }
+    }
+    .news-thumb-hover {
+        top: 0;
+        @include displayflex;
+        @include height-full;
+        @include position-child;
+        background-color: #0000006e;
+        @include hide-section;
+        @include transition-delay;
+        color: $optional-color;
+        i {
+            color: $optional-color !important;
+            font-size: 25px;
+            &:hover {
+                color: $button-hover-color !important;
+                @include transform-image-hover;
+                // @include transition-delay;
+            }
+        }
+        
+    }
+    .news-thumbnails:hover .news-thumb-hover {
+        @include show-section;
+        @include transition-delay;
+    }
+    
+    .events-content .event-date {
+        @include no-margin;
+        i {
+            color: $primary-color;
+        }
+    }
+    .news-events {
+        @include position-parent;
+    }
+    .news-contentsaside .readmore-icon {
+        color: $optional-color;
+        &:hover i{
+            @include animation;
+        }
+    }
+    .eventsaside-wrapper {
+        height: 574px;
+        overflow-y: scroll;
+        @include overflowx;
+        i {
+            color: $primary-color;
+        }
+        .event-subtitle {
+            @include subtitle-font;
+            margin-top: 10px;
+            margin-bottom: 11px;
+        }
+    }
+}
+
+/* Gallery-section */
+.media-gallery {
+    background: $section-background;
+    .mfp-title {
+        display: none;
+    }
+    .image-hover {
+        top: 0;
+        @include displayflex;
+        background: #00000063;
+        @include height-full;
+        @include full-width;
+        @include hide-section;
+        i {
+            font-size: 35px;
+            color: $optional-color;
+            &:hover {
+                color: $button-hover-color;
+                @include transform-image-hover;
+            }
+        }
+    }
+    .gal-imagewrapper:hover .image-hover{
+        @include show-section;
+    }
+    .gal-play {
+        top: 0;
+        background: #00000096;
+        z-index: 999;
+        @include height-full;
+        @include position-child;
+        @include displayflex;
+    }
+    .gal-wrapper {
+        @include position-parent;
+    }
+}
+
+/* Call-To-Action */
+.call-to-action {
+    @include position-parent;
+    background: $primary-color;
+    padding: 40px 0;
+    
+    .action-title {
+        font-size: 28px;
+        color: $optional-color;
+        margin-bottom: 25px; 
+    }
+    .btn {
+        text-transform: uppercase;
+        font-weight: 700;
+        background: $primary-color;
+        font-size: 32px;
+        padding: 10px;
+        border: 1px solid #EEE;
+        color: $optional-color;
+        &:hover {
+            border: 1px solid $primary-color;
+        }
+        &:hover i{
+            @include animation;
+        }
+    }
+}
+
+/* Footer */
+.main-footer {
+    @include position-parent;
+    img {
+        height: 193px;
+        margin: -30px 0 0 -30px;    
+    }
+    .footernewsletter-wrapper input {
+        @include no-border-radius;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+    p {
+        margin-top: 14px;
+        color: $optional-color;
+        margin-top: -30px;
+    }
+    .footer-title {
+        margin: 28px 0;
+    }
+    .btn-subscribe-footer {
+        background: $primary-color !important;
+        &:hover {
+            background: $button-hover-color !important;
+        }
+    }
+    .footer-background {
+        top: 0;
+        left: 0;
+        max-height: 468px;
+        height: 468px;
+        @include position-child;
+    }
+    .footernewsletter-wrapper h4 {
+        margin: 28px 0;
+    }
+    .btn-subscribe-footer {
+        background: $primary-color;
+        border: 1px solid $optional-color;
+        color: $optional-color;
+        padding: 0 10px;
+    }
+    .footer-background img{
+        max-height: 468px;
+        height: 468px;
+        @include full-width;
+    }
+    .footer-contentwrapper {
+        @include position-child;
+        top: 0;
+        background: $primary-color;
+        color: $optional-color;
+        padding: 60px 0 30px 0;
+    }
+    .footer-wrapper ul {
+        @include ulstyle;
+        li {
+            margin: 12px 0;
+        }
+        li a {
+            color: $optional-color;
+        }
+        a i {
+            margin-right: 15px;
+        }
+    }
+}
+
+/* Backto-top-button */
+#button {
+    display: inline-block;
+    background-color: $primary-color;
+    border: 1px solid $optional-color;
+    width: 50px;
+    height: 50px;
+    @include text-center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    opacity: 0;
+    @include hide-section;
+    z-index: 1000;
+    &:after {
+        content: "\f077";
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 2em;
+        line-height: 50px;
+        color: $optional-color;
+      }
+     &:hover {
+        cursor: pointer;
+        background-color: $button-hover-color;
+      }
+      &:active {
+        background-color: $button-hover-color;
+      }
+      &.show {
+        opacity: 1;
+        @include show-section;
+      }
+  }
+
+ /* Scrollbar-design */
+
+.eventsaside-wrapper::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px $primary-color;
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+.eventsaside-wrapper::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+.eventsaside-wrapper::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	box-shadow: inset 0 0 6px $primary-color;
+	background-color: $primary-color;
+}
+ 
+/* Responsive */
+@media screen and (max-width: 992px){
+    .about-section .about-image-wrapper {
+        @include text-center;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .news-contentsaside {
+        position: initial;
+        @include full-width;
+        margin-bottom: 1em;
+    }
+    .hero-banner {
+        @include ulstyle;
+    }
+    .flex-navbar .login-navbar li {
+        display: block;
+        margin: 16px 0;
+    }
+    .news-events .events-content .event-date {
+        margin: 14px 0 0 0;
+    }
+    .donation h2 {
+        margin: 15px 0;
+    }
+    .call-to-action .btn {
+        @include font-medium;
+    }
+    .about-section .about-image-wrapper {
+        @include full-width;
+        float: none;
+    }
+    .news-events .news-contentsaside {
+        position: static;
+        @include full-width;
+    }
+    .main-header .flex-navbar {
+        justify-content: space-evenly;
+        padding: 1.5em;
+        @include text-center;
+    }
+    .hero-bannermain {
+        margin-top: 3.7em;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    section {
+        padding: 25px 0 !important;
+    }
+    .owl-carousel .owl-item img,
+    .hero-bannermain .banner-contents {
+        height: 400px;
+    }
+    .hero-bannermain .banner-contents .banner-title,
+    .call-to-action .action-title {
+        @include font-medium;
+        @include text-center;
+    }
+    .hero-bannermain .banner-contents .banner-subtitle,
+    .call-to-action .btn {
+        @include small-font;
+    }
+  }
